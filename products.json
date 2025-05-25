@@ -359,5 +359,14 @@
     "image": "images/red-panda.png",
     "category": "Image",
     "inStock": true
+  },
+  {
+    "name": "something",
+    "description": "something",
+    "price": 100.0,
+    "discount": 0,
+    "image": "images/red-panda.png",
+    "category": "",
+    "inStock": true
   }
 ]
