@@ -15,5 +15,13 @@
     "image": "https://example.com/headphones.jpg",
     "category": "Audio",
     "inStock": true
+  },
+  {
+    "name": "Fuck Smara",
+    "description": "Premium quality with active noise.",
+    "price": 0.99,
+    "image": "https://example.com/headphones.jpg",
+    "category": "Whore",
+    "inStock": true
   }
 ]
