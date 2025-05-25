@@ -1,241 +1,386 @@
-/* Custom styles for better UX and consistent card sizing */
-    .products-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, 300px);
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-items: center;
-        justify-content: center;
-        gap: 20px;
-        padding: 0 8px;
-    }
-    .product-card {
-        height: 100%;
-        min-width: 100%;
-        max-width: 100%;
-        display: flex;
-    }
-    .product-card .w3-card-4 {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .product-card .w3-card-4:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-    .product-image {
-        height: 200px;
-        object-fit: cover;
-        border-radius: 8px 8px 0 0;
-    }
-    .product-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        padding: 20px !important;
-    }
-    .product-description {
-        flex: 1;
-        margin-bottom: 15px;
-    }
-    .price-section {
-        margin-top: auto;
-        padding-top: 10px;
-        display: flex;
-        align-items: left;
-    }
-    .original-price {
-        text-decoration: line-through;
-        color: #999;
-        font-size: 14px;
-    }
-    .discounted-price {
-        color: #e74c3c;
-        font-size: 20px;
-        font-weight: bold;
-    }
-    .regular-price {
-        color: #2196F3;
-        font-size: 20px;
-        font-weight: bold;
-    }
-    .discount-badge {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        z-index: 1;
-    }
-    .service-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-    .service-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-    .search-container {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 40px 0;
-    }
-    
-    .search-wrapper {
-        max-width: 800px;
-        margin: 0 auto;
-        position: relative;
-    }
+/* Red Panda Store - Custom styles for better UX and consistent card sizing */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 8px;
+}
 
-    .search-with-extra-container{
-        display: flex;
-        flex-direction: row; 
-        width: 100%; 
-        gap: 10px;
-    }
+.product-card {
+    height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    display: flex;
+}
 
+.product-card .w3-card-4 {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.product-card .w3-card-4:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
+    border-color: #dc2626;
+}
+
+.product-image {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.product-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px !important;
+}
+
+.product-description {
+    flex: 1;
+    margin-bottom: 15px;
+}
+
+.price-section {
+    margin-top: auto;
+    padding-top: 10px;
+    display: flex;
+    align-items: left;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+}
+
+.discounted-price {
+    color: #dc2626;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.regular-price {
+    color: #dc2626;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+}
+
+.discount-badge .w3-tag {
+    background: linear-gradient(45deg, #dc2626, #ef4444) !important;
+    border-radius: 20px !important;
+    padding: 8px 12px !important;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+}
+
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.15);
+    border-color: #dc2626;
+}
+
+.search-container {
+    background: linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%);
+    padding: 40px 0;
+    position: relative;
+}
+
+.search-container::before {
+    content: '🐼';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    opacity: 0.3;
+}
+
+.search-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.search-with-extra-container {
+    display: flex;
+    flex-direction: row; 
+    width: 100%; 
+    gap: 10px;
+}
+
+.search-input-container {
+    position: relative;
+    display: flex;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(127, 29, 29, 0.3);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 3px solid #fecaca;
+}
+
+.search-input-container:hover {
+    box-shadow: 0 15px 40px rgba(127, 29, 29, 0.4);
+    border-color: #dc2626;
+}
+
+.search-input {
+    width: 100%;
+    flex: 1;
+    border: none;
+    padding: 20px 25px;
+    font-size: 18px;
+    outline: none;
+    background: transparent;
+}
+
+.search-input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.search-button {
+    background: linear-gradient(45deg, #dc2626, #ef4444);
+    border: none;
+    padding: 20px 35px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+.search-button:hover {
+    background: linear-gradient(45deg, #b91c1c, #dc2626);
+    transform: scale(1.05);
+}
+
+.search-button i {
+    margin-right: 8px;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '🐼';
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    font-size: 8rem;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.hero-section h1 {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section p {
+    position: relative;
+    z-index: 2;
+}
+
+.phone-highlight {
+    background: linear-gradient(45deg, #dc2626, #ef4444);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+    position: relative;
+}
+
+.phone-highlight::before {
+    content: '🐼';
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    opacity: 0.3;
+}
+
+.phone-number {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 40px;
+    color: #7f1d1d;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, #dc2626, #ef4444);
+    border-radius: 2px;
+}
+
+/* Red Panda themed buttons */
+.w3-button.w3-blue, 
+.w3-bar-item.w3-button.w3-blue {
+    background: linear-gradient(45deg, #dc2626, #ef4444) !important;
+    border: none !important;
+    transition: all 0.3s ease;
+}
+
+.w3-button.w3-blue:hover,
+.w3-bar-item.w3-button:hover {
+    background: linear-gradient(45deg, #b91c1c, #dc2626) !important;
+    /* transform: translateY(-2px); */
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.w3-text-blue.section-title,
+i.w3-text-blue{
+    color: #dc2626!important;
+}
+
+/* Contact Us Cards Unified Height */
+.contact-card {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3px;
+    transition: all 0.3s ease;
+    border: 2px solid #fecaca;
+}
+
+.contact-card:hover {
+    border-color: #dc2626;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
+    transform: translateY(-3px);
+}
+
+.contact-card i {
+    margin-bottom: 15px;
+    color: #dc2626 !important;
+}
+
+.contact-card h4 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #7f1d1d;
+}
+
+.contact-card p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.contact-card a {
+    color: #dc2626 !important;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+    color: #b91c1c !important;
+}
+
+/* Footer styling */
+footer.w3-blue {
+    background: linear-gradient(135deg, #7f1d1d 0%, #450a0a 100%) !important;
+}
+
+/* Red Panda themed navigation */
+.w3-bar {
+    box-shadow: 0 2px 10px rgba(220, 38, 38, 0.1);
+}
+
+/* Loading and error states */
+.loading i, .error i {
+    color: #dc2626;
+}
+
+/* Panda decorative elements */
+.products-grid::before {
+    content: '🐼 Red Panda Store 🐼';
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fecaca;
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+.w3-container.w3-padding-32 {
+    position: relative;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .search-with-extra-container {
+        flex-direction: column;
+    }
     
     .search-input-container {
-        position: relative;
-        display: flex;
-        background: white;
-        border-radius: 50px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        overflow: hidden;
-        transition: all 0.3s ease;
-    }
-    
-    .search-input-container:hover {
-        box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        flex-direction: column;
+        border-radius: 15px;
     }
     
     .search-input {
-        width: 100%;
-        flex: 1;
-        border: none;
-        padding: 20px 25px;
-        font-size: 18px;
-        outline: none;
-        background: transparent;
-    }
-    
-    .search-input::placeholder {
-        color: #999;
-        font-style: italic;
-    }
-    
-    .search-button {
-        background: linear-gradient(45deg, #2196F3, #21CBF3);
-        border: none;
-        padding: 20px 35px;
-        color: white;
-        font-size: 18px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
+        border-bottom: 1px solid #fecaca;
         border-radius: 0;
     }
     
-    .search-button:hover {
-        background: linear-gradient(45deg, #1976D2, #0288D1);
-        transform: scale(1.05);
+    .search-button {
+        border-radius: 0 0 15px 15px;
     }
     
-    .search-button i {
-        margin-right: 8px;
-    }
-    .service-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-    .service-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-    .search-container {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 30px 0;
-    }
-    .hero-section {
-        background: linear-gradient(135deg, #2196F3 0%, #21CBF3 100%);
-    }
-    .phone-highlight {
-        background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-        color: white;
-        padding: 20px;
-        border-radius: 15px;
-        margin: 20px 0;
-        text-align: center;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    .phone-number {
-        font-size: 24px;
-        font-weight: bold;
-        text-decoration: none;
-        color: white;
-    }
-    .section-title {
-        position: relative;
-        margin-bottom: 40px;
-    }
-    .section-title::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 3px;
-        background: linear-gradient(45deg, #2196F3, #21CBF3);
-        border-radius: 2px;
-    }
-    /* Contact Us Cards Unified Height */
-    .contact-card {
-        height: 180px;
-        display: flex;
+    .price-section {
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        margin-bottom: 3px;
+        align-items: flex-start;
+        gap: 5px;
     }
     
-    .contact-card i {
-        margin-bottom: 15px;
+    .hero-section::before {
+        font-size: 4rem;
+        right: 5%;
     }
-    
-    .contact-card h4 {
-        margin: 10px 0;
-        font-size: 18px;
-    }
-    
-    .contact-card p {
-        margin: 5px 0;
-        font-size: 16px;
-    }
-    @media (max-width: 600px) {
-        .search-with-extra-container{
-            flex-direction: column;
-        }
-        .search-input-container {
-            flex-direction: column;
-            border-radius: 15px;
-        }
-        
-        .search-input {
-            border-bottom: 1px solid #eee;
-            border-radius: 0;
-        }
-        
-        .search-button {
-            border-radius: 0 0 15px 15px;
-        }
-        
-        .price-section {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 5px;
-        }
-    }
+}

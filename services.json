@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Tech Support Service",
+    "description": "Professional technical support for all your devices.",
+    "icon": "fa-wrench",
+    "buttonText": "Call for Service"
+  },
+  {
+    "name": "Extended Warranty Program",
+    "description": "Protect your investment with comprehensive coverage.",
+    "icon": "fa-shield",
+    "buttonText": "Learn More"
+  }
+]

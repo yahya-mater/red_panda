@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Premium Laptop Computer",
+    "description": "High-performance laptop perfect for work, gaming, and creative tasks.",
+    "price": 999.99,
+    "discount": 15,
+    "image": "https://example.com/laptop.jpg",
+    "category": "Electronics",
+    "inStock": true
+  },
+  {
+    "name": "Wireless Headphones",
+    "description": "Premium sound quality with active noise cancellation.",
+    "price": 199.99,
+    "image": "https://example.com/headphones.jpg",
+    "category": "Audio",
+    "inStock": true
+  }
+]
