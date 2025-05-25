@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Store - What's New</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="w3-bar w3-white w3-card w3-large">
+        <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Home</a>
+        <a href="whats-new.html" class="w3-bar-item w3-button w3-blue">What's New</a>
+        <!-- <a href="admin.html" class="w3-bar-item w3-button w3-hover-blue w3-right">Admin</a> -->
+    </div>
+    
+    <!-- Hero Section -->
+    <header class="w3-container hero-section w3-center w3-padding-64">
+        <h1 class="w3-margin w3-jumbo w3-text-white">What's New</h1>
+        <p class="w3-xlarge w3-text-white w3-opacity">Latest News and Updates from Your Store</p>
+    </header>
+
+    <!-- Loading indicator -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Loading news articles...</p>
+    </div>
+
+    <!-- News Articles Section -->
+    <div class="w3-container w3-padding-32">
+        <div class="w3-row-padding" id="newsContainer">
+            <!-- News articles will be loaded here dynamically -->
+        </div>
+    </div>
+
+    <!-- Load More News Section -->
+    <div class="w3-container w3-center w3-padding-32">
+        <button class="w3-button w3-blue w3-large w3-round" onclick="loadMoreNews()" id="loadMoreBtn">
+            <i class="fa fa-refresh"></i> Load More News
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-blue w3-center w3-padding-16">
+        <p>&copy; 2024 Your Store. All rights reserved.</p>
+        <p>Contact us: info@yourstore.com | Phone: (555) 123-4567</p>
+    </footer>
+
+    <script>
+        
+        // Global variables to store data
+        let newsData = [];
+
+        let currentPage = 1;
+        const articlesPerPage = 4;
+        let allNews = [];
+
+        // Load data from JSON files
+        async function loadData() {
+            try {
+                showLoading(true);
+                // Load news
+                const newsResponse = await fetch('news.json');
+                if (!newsResponse.ok) {
+                    throw new Error('Failed to load news data');
+                }
+                newsData = await newsResponse.json();
+                allNews = newsData.sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date, newest first
+                displayNews(allNews.slice(0, articlesPerPage));
+
+                showLoading(false);
+                
+                // Show/hide load more button based on available articles
+                updateLoadMoreButton();
+
+            } catch (error) {
+                console.error('Error loading news:', error);
+                showLoading(false);
+                showError('Failed to load news articles. Please try again later.');
+            }
+        }
+        
+
+        // Function to display news articles
+        function displayNews(newsArticles) {
+            const container = document.getElementById('newsContainer');
+            
+            newsArticles.forEach(article => {
+                const articleHTML = createNewsCard(article);
+                container.innerHTML += articleHTML;
+            });
+        }
+
+        // Function to create a news card HTML
+        function createNewsCard(article) {
+            const formattedDate = formatNewsDate(article.date);
+            
+            return `
+                <div class="w3-col l6 m12 s12 w3-margin-bottom news-article">
+                    <div class="w3-card-4 w3-white">
+                        <img src="${article.image}" alt="${article.title}" style="width:100%">
+                        <div class="w3-container w3-padding">
+                            <h3><b>${article.title}</b></h3>
+                            <p class="w3-text-grey"><i class="fa fa-calendar"></i> ${formattedDate}</p>
+                            <p>${article.content}</p>
+                            <span class="w3-tag w3-${article.categoryColor} w3-round">${article.category}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to format news date
+        function formatNewsDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+        }
+
+        // Function to load more news articles
+        function loadMoreNews() {
+            const startIndex = currentPage * articlesPerPage;
+            const endIndex = startIndex + articlesPerPage;
+            const nextArticles = allNews.slice(startIndex, endIndex);
+            
+            if (nextArticles.length > 0) {
+                displayNews(nextArticles);
+                currentPage++;
+                updateLoadMoreButton();
+            }
+        }
+
+        // Function to update load more button visibility
+        function updateLoadMoreButton() {
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const remainingArticles = allNews.length - (currentPage * articlesPerPage);
+            
+            if (remainingArticles <= 0) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'inline-block';
+                loadMoreBtn.innerHTML = `<i class="fa fa-refresh"></i> Load More News (${remainingArticles} remaining)`;
+            }
+        }
+
+        // Function to show/hide loading indicator
+        function showLoading(show) {
+            const loading = document.getElementById('loading');
+            loading.style.display = show ? 'block' : 'none';
+        }
+
+        // Function to show error message
+        function showError(message) {
+            const container = document.getElementById('newsContainer');
+            container.innerHTML = `
+                <div class="w3-container w3-center w3-padding-32">
+                    <div class="w3-card w3-red w3-padding">
+                        <h3><i class="fa fa-exclamation-triangle"></i> Error</h3>
+                        <p>${message}</p>
+                        <button class="w3-button w3-white w3-round" onclick="location.reload()">
+                            <i class="fa fa-refresh"></i> Retry
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Load news when page loads
+        window.addEventListener('load', function() {
+            loadData();
+        });
+
+        // Alternative function to load from external JSON file
+        async function loadFromExternalJSON(jsonFilePath) {
+            try {
+                showLoading(true);
+                const response = await fetch(jsonFilePath);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                allNews = data.news.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                // Clear existing content
+                document.getElementById('newsContainer').innerHTML = '';
+                currentPage = 1;
+                
+                displayNews(allNews.slice(0, articlesPerPage));
+                updateLoadMoreButton();
+                showLoading(false);
+                
+            } catch (error) {
+                console.error('Error loading JSON file:', error);
+                showLoading(false);
+                showError(`Failed to load news from ${jsonFilePath}. Please check the file path and try again.`);
+            }
+        }
+
+        // Example usage for loading from external file:
+        // loadFromExternalJSON('news-data.json');
+    </script>
+</body>
+</html>

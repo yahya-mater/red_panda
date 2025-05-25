@@ -1,0 +1,56 @@
+[
+                {
+                    "id": 1,
+                    "title": "New iPhone 15 Series Now Available!",
+                    "date": "2024-12-15",
+                    "content": "We're excited to announce that the latest iPhone 15 series is now available in our store! Featuring the new A17 Pro chip, improved camera system, and USB-C connectivity. Visit us today to experience the future of smartphones.",
+                    "category": "Product Launch",
+                    "categoryColor": "blue",
+                    "image": "https://dummyimage.com/600x300/2196F3/ffffff?text=iPhone+15"
+                },
+                {
+                    "id": 2,
+                    "title": "Holiday Sale - Up to 50% Off!",
+                    "date": "2024-12-10",
+                    "content": "Don't miss our biggest sale of the year! Get up to 50% off on selected electronics, computers, and accessories. Sale runs from December 15th to December 31st. Limited stock available - first come, first served!",
+                    "category": "Sale Event",
+                    "categoryColor": "red",
+                    "image": "https://dummyimage.com/600x300/f44336/ffffff?text=Holiday+Sale"
+                },
+                {
+                    "id": 3,
+                    "title": "Extended Store Hours for Holiday Season",
+                    "date": "2024-12-05",
+                    "content": "To better serve our customers during the holiday season, we're extending our store hours. Starting December 15th, we'll be open from 8 AM to 10 PM Monday through Saturday, and 10 AM to 8 PM on Sundays. Regular hours resume January 2nd.",
+                    "category": "Store Update",
+                    "categoryColor": "green",
+                    "image": "https://dummyimage.com/600x300/4CAF50/ffffff?text=Store+Hours"
+                },
+                {
+                    "id": 4,
+                    "title": "New Gaming Laptop Collection Arrives",
+                    "date": "2024-11-28",
+                    "content": "Gamers, rejoice! Our new collection of high-performance gaming laptops has arrived. Featuring the latest NVIDIA RTX 4080 graphics cards, Intel Core i9 processors, and lightning-fast SSD storage. Perfect for both gaming and professional work.",
+                    "category": "Gaming",
+                    "categoryColor": "purple",
+                    "image": "https://dummyimage.com/600x300/9c27b0/ffffff?text=Gaming+Laptops"
+                },
+                {
+                    "id": 5,
+                    "title": "Tech Support Service Now Available",
+                    "date": "2024-11-20",
+                    "content": "We're pleased to announce our new tech support service! Our certified technicians are now available to help with device setup, troubleshooting, and repairs. Both in-store and remote support options are available. Contact us to schedule an appointment.",
+                    "category": "Service Launch",
+                    "categoryColor": "orange",
+                    "image": "https://dummyimage.com/600x300/ff9800/ffffff?text=Tech+Support"
+                },
+                {
+                    "id": 6,
+                    "title": "Customer Loyalty Program Launched",
+                    "date": "2024-11-15",
+                    "content": "Join our new loyalty program and start earning points with every purchase! Earn 1 point for every dollar spent, and redeem points for discounts on future purchases. Sign up today and receive 100 bonus points to get started!",
+                    "category": "Program Launch",
+                    "categoryColor": "teal",
+                    "image": "https://dummyimage.com/600x300/009688/ffffff?text=Loyalty+Program"
+                }
+            ]
