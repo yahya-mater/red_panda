@@ -37,6 +37,18 @@
         </div>
     </div>
 
+    <!-- Products Section 
+    <div class="w3-container w3-padding-32">
+        <h2 class="w3-center w3-text-blue section-title">Our Menu</h2>
+        <div class="products-grid" id="productsContainer">
+            <div class="loading" id="loadingMessage">
+                <i class="fa fa-spinner fa-spin w3-text-blue" style="font-size: 48px;"></i>
+                <h3>Loading products...</h3>
+            </div>
+        </div>
+    </div> -->
+
+    
     <!-- Products Section -->
     <div class="w3-container w3-padding-32">
         <h2 class="w3-center w3-text-blue section-title">Our Menu</h2>
@@ -44,6 +56,14 @@
             <div class="loading" id="loadingMessage">
                 <i class="fa fa-spinner fa-spin w3-text-blue" style="font-size: 48px;"></i>
                 <h3>Loading products...</h3>
+            </div>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="pagination-container w3-center w3-padding-24" id="paginationContainer" style="display: none;">
+            <div class="pagination-info" id="paginationInfo"></div>
+            <div class="w3-bar w3-border w3-round" id="paginationBar">
+                <!-- Pagination buttons will be inserted here -->
             </div>
         </div>
     </div>
@@ -102,6 +122,9 @@
         // Global variables to store data
         let productsData = [];
         let servicesData = [];
+        let filteredProducts = [];
+        let currentPage = 1;
+        const itemsPerPage = 10;
 
         // Load data from JSON files
         async function loadData() {
@@ -112,9 +135,9 @@
                     throw new Error('Failed to load products data');
                 }
                 productsData = await productsResponse.json();
-                console.log(productsData)
+                filteredProducts = [...productsData];
+
                 displayProducts(productsData);
-                console.log("done displayProducts")
 
                 // Load services
                 const servicesResponse = await fetch('services.json');
@@ -124,9 +147,10 @@
                     throw new Error('Failed to load services data');
                 }
                 servicesData = await servicesResponse.json();
-                console.log("done servicesData")
                 displayServices(servicesData);
-                console.log("done displayServices")
+
+                
+                updatePagination();
 
             } catch (error) {
                 console.error('Error loading data:', error);
@@ -134,14 +158,11 @@
             }
         }
 
-        // Display products dynamically
-        function displayProducts(products) {
+        // Display products with pagination
+        function displayProducts() {
             const container = document.getElementById('productsContainer');
             
-            console.log(products)
-            console.log(container)
-            if (!products || products.length === 0) {
-                console.log("!products || products.length === 0")
+            if (!filteredProducts || filteredProducts.length === 0) {
                 container.innerHTML = `
                     <div class="w3-col s12 w3-center w3-padding-32">
                         <i class="fa fa-exclamation-triangle w3-text-grey" style="font-size: 64px;"></i>
@@ -149,17 +170,98 @@
                         <p class="w3-text-grey">Please check back later</p>
                     </div>
                 `;
+                document.getElementById('paginationContainer').style.display = 'none';
                 return;
             }
-            if (container != null){
 
-                container.innerHTML = '';
-                
-                products.forEach(product => {
-                    const productCard = createProductCard(product);
-                    container.appendChild(productCard);
-                });
+            // Calculate pagination
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const productsToShow = filteredProducts.slice(startIndex, endIndex);
+
+            container.innerHTML = '';
+            
+            productsToShow.forEach(product => {
+                const productCard = createProductCard(product);
+                container.appendChild(productCard);
+            });
+
+            // Show pagination if needed
+            if (filteredProducts.length > itemsPerPage) {
+                document.getElementById('paginationContainer').style.display = 'block';
+                updatePagination();
+            } else {
+                document.getElementById('paginationContainer').style.display = 'none';
+            }
+        }
+
+        // Update pagination
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+            const paginationBar = document.getElementById('paginationBar');
+            const paginationInfo = document.getElementById('paginationInfo');
+            
+            // Update info
+            const startItem = (currentPage - 1) * itemsPerPage + 1;
+            const endItem = Math.min(currentPage * itemsPerPage, filteredProducts.length);
+            paginationInfo.innerHTML = `Showing ${startItem}-${endItem} of ${filteredProducts.length} products`;
+            
+            // Clear pagination bar
+            paginationBar.innerHTML = '';
+            
+            // Previous button
+            const prevBtn = document.createElement('a');
+            prevBtn.href = '#';
+            prevBtn.className = `w3-bar-item w3-button ${currentPage === 1 ? 'w3-disabled w3-grey' : 'w3-hover-blue'}`;
+            prevBtn.innerHTML = '&laquo;';
+            prevBtn.onclick = (e) => {
+                e.preventDefault();
+                if (currentPage > 1) {
+                    currentPage--;
+                    displayProducts();
+                    updatePagination();
+                }
             };
+            paginationBar.appendChild(prevBtn);
+            
+            // Page numbers
+            const maxVisiblePages = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+            
+            // Adjust start page if we're near the end
+            if (endPage - startPage < maxVisiblePages - 1) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+            
+            for (let i = startPage; i <= endPage; i++) {
+                const pageBtn = document.createElement('a');
+                pageBtn.href = '#';
+                pageBtn.className = `w3-bar-item w3-button ${i === currentPage ? 'w3-blue' : 'w3-hover-blue'}`;
+                pageBtn.textContent = i;
+                pageBtn.onclick = (e) => {
+                    e.preventDefault();
+                    currentPage = i;
+                    displayProducts();
+                    updatePagination();
+                };
+                paginationBar.appendChild(pageBtn);
+            }
+            
+            // Next button
+            const nextBtn = document.createElement('a');
+            nextBtn.href = '#';
+            nextBtn.className = `w3-bar-item w3-button ${currentPage === totalPages ? 'w3-disabled w3-grey' : 'w3-hover-blue'}`;
+            nextBtn.innerHTML = '&raquo;';
+            nextBtn.onclick = (e) => {
+                e.preventDefault();
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    displayProducts();
+                    updatePagination();
+                }
+            };
+            paginationBar.appendChild(nextBtn);
         }
 
         // Create product card element
