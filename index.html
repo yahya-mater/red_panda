@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Store - Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="w3-bar w3-white w3-card w3-large">
+        <a href="index.html" class="w3-bar-item w3-button w3-blue w3-mobile">Home</a>
+        <a href="whats-new.html" class="w3-bar-item w3-button w3-hover-blue w3-mobile">What's New</a>
+        <a href="admin.html" class="w3-bar-item w3-button w3-hover-blue w3-mobile w3-right">Admin</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="w3-container hero-section w3-center w3-padding-64">
+        <h1 class="w3-margin w3-jumbo w3-text-white">Your Store</h1>
+        <p class="w3-xlarge w3-text-white w3-opacity">Browse Our Menu & Call to Order</p>
+    </header>
+    
+    <!-- Search Section -->
+    <div class="search-container">
+        <div class="w3-container w3-padding-16">
+            <div class="search-wrapper">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" id="searchInput" placeholder="Search our menu..." onkeyup="searchProducts()">
+                    <button class="search-button" onclick="searchProducts()">
+                        <i class="fa fa-search"></i>Search Menu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <div class="w3-container w3-padding-32">
+        <h2 class="w3-center w3-text-blue section-title">Our Menu</h2>
+        <div class="products-grid" id="productsContainer">
+            
+            <!-- BACKEND HOOK: This section will be populated by database query results -->
+            <!-- Sample Product Card 1 - Replace with dynamic content from database -->
+            <div class="w3-col l3 m6 s12 w3-margin-bottom product-card" data-name="laptop computer">
+                <div class="w3-card-4 w3-white w3-round-large" style="position: relative;">
+                    <!-- BACKEND HOOK: Discount badge visibility based on database -->
+                    <div class="discount-badge">
+                        <span class="w3-tag w3-red w3-round-large">15% OFF</span>
+                    </div>
+                    <img src="https://dummyimage.com/300x200/4CAF50/white?text=Laptop" alt="Laptop Computer" class="product-image" style="width:100%">
+                    <div class="w3-container product-content">
+                        <h4><b>Premium Laptop Computer</b></h4>
+                        <div class="product-description">
+                            <p class="w3-text-grey">High-performance laptop perfect for work, gaming, and creative tasks. Features latest processor and graphics.</p>
+                        </div>
+                        
+                        <!-- Price Section -->
+                        <div class="price-section">
+                            <!-- BACKEND HOOK: Discounted price calculation -->
+                            <p class="discounted-price">$849.99</p>
+                            <!-- BACKEND HOOK: Original price from database -->
+                            <p class="original-price">$999.99</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Product Card 2 - Replace with dynamic content from database -->
+            <div class="w3-col l3 m6 s12 w3-margin-bottom product-card" data-name="wireless headphones">
+                <div class="w3-card-4 w3-white w3-round-large">
+                    <img src="https://dummyimage.com/300x200/2196F3/white?text=Headphones" alt="Wireless Headphones" class="product-image" style="width:100%">
+                    <div class="w3-container product-content">
+                        <h4><b>Wireless Headphones</b></h4>
+                        <div class="product-description">
+                            <p class="w3-text-grey">Premium sound quality with active noise cancellation. Perfect for music, calls, and entertainment.</p>
+                        </div>
+                        
+                        <!-- Price Section -->
+                        <div class="price-section">
+                            <!-- BACKEND HOOK: Price from database -->
+                            <p class="regular-price">$199.99</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Product Card 3 - Replace with dynamic content from database -->
+            <div class="w3-col l3 m6 s12 w3-margin-bottom product-card" data-name="smartphone">
+                <div class="w3-card-4 w3-white w3-round-large" style="position: relative;">
+                    <!-- BACKEND HOOK: Discount badge visibility based on database -->
+                    <div class="discount-badge">
+                        <span class="w3-tag w3-red w3-round-large">14% OFF</span>
+                    </div>
+                    <img src="https://dummyimage.com/300x200/FF9800/white?text=Smartphone" alt="Smartphone" class="product-image" style="width:100%">
+                    <div class="w3-container product-content">
+                        <h4><b>Latest Smartphone</b></h4>
+                        <div class="product-description">
+                            <p class="w3-text-grey">Latest model with advanced camera features, long battery life, and lightning-fast performance.</p>
+                        </div>
+                        
+                        <!-- Price Section -->
+                        <div class="price-section">
+                            <!-- BACKEND HOOK: Discounted price calculation -->
+                            <p class="discounted-price">$599.99</p>
+                            <!-- BACKEND HOOK: Original price from database -->
+                            <p class="original-price">$699.99</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Product Card 4 - Replace with dynamic content from database -->
+            <div class="w3-col l3 m6 s12 w3-margin-bottom product-card" data-name="tablet">
+                <div class="w3-card-4 w3-white w3-round-large">
+                    <img src="https://dummyimage.com/300x200/9C27B0/white?text=Tablet" alt="Tablet" class="product-image" style="width:100%">
+                    <div class="w3-container product-content">
+                        <h4><b>Premium Tablet</b></h4>
+                        <div class="product-description">
+                            <p class="w3-text-grey">Perfect for reading, browsing, entertainment, and light productivity tasks. Crisp display and long battery.</p>
+                        </div>
+                        
+                        <!-- Price Section -->
+                        <div class="price-section">
+                            <!-- BACKEND HOOK: Price from database -->
+                            <p class="regular-price">$299.99</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Product Card 5 - Replace with dynamic content from database -->
+            <div class="w3-col l3 m6 s12 w3-margin-bottom product-card" data-name="smartwatch">
+                <div class="w3-card-4 w3-white w3-round-large" style="position: relative;">
+                    <!-- BACKEND HOOK: Discount badge visibility based on database -->
+                    <div class="discount-badge">
+                        <span class="w3-tag w3-red w3-round-large">20% OFF</span>
+                    </div>
+                    <img src="https://dummyimage.com/300x200/607D8B/white?text=Smartwatch" alt="Smartwatch" class="product-image" style="width:100%">
+                    <div class="w3-container product-content">
+                        <h4><b>Smart Fitness Watch</b></h4>
+                        <div class="product-description">
+                            <p class="w3-text-grey">Track your fitness, monitor health metrics, and stay connected. Water-resistant with week-long battery.</p>
+                        </div>
+                        
+                        <!-- Price Section -->
+                        <div class="price-section">
+                            <!-- BACKEND HOOK: Discounted price calculation -->
+                            <p class="discounted-price">$199.99</p>
+                            <!-- BACKEND HOOK: Original price from database -->
+                            <p class="original-price">$249.99</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Product Card 6 - Replace with dynamic content from database -->
+            <div class="w3-col l3 m6 s12 w3-margin-bottom product-card" data-name="gaming mouse">
+                <div class="w3-card-4 w3-white w3-round-large">
+                    <img src="https://dummyimage.com/300x200/795548/white?text=Gaming+Mouse" alt="Gaming Mouse" class="product-image" style="width:100%">
+                    <div class="w3-container product-content">
+                        <h4><b>Professional Gaming Mouse</b></h4>
+                        <div class="product-description">
+                            <p class="w3-text-grey">High-precision gaming mouse with customizable buttons, RGB lighting, and ergonomic design for extended use.</p>
+                        </div>
+                        
+                        <!-- Price Section -->
+                        <div class="price-section">
+                            <!-- BACKEND HOOK: Price from database -->
+                            <p class="regular-price">$89.99</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="w3-container w3-light-grey w3-padding-32">
+        <h2 class="w3-center w3-text-blue section-title">Our Services</h2>
+        <div class="w3-row-padding">
+            
+            <!-- BACKEND HOOK: This section will be populated by database query for featured/new services -->
+            <!-- Sample Service Card 1 - Replace with dynamic content from database -->
+            <div class="w3-col l6 m12 s12 w3-margin-bottom">
+                <div class="w3-card w3-white w3-round-large service-card">
+                    <div class="w3-container w3-padding-24">
+                        <div class="w3-row">
+                            <div class="w3-col s3 w3-center">
+                                <i class="fa fa-wrench w3-text-blue" style="font-size: 48px;"></i>
+                            </div>
+                            <div class="w3-col s9">
+                                <h3><b>Tech Support Service</b></h3>
+                                <p>Professional technical support for all your devices. Our certified technicians provide on-site and remote assistance for hardware and software issues.</p>
+                                <button class="w3-button w3-blue w3-round" onclick="callForService('Tech Support Service')">
+                                    <i class="fa fa-phone"></i> Call for Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Service Card 2 - Replace with dynamic content from database -->
+            <div class="w3-col l6 m12 s12 w3-margin-bottom">
+                <div class="w3-card w3-white w3-round-large service-card">
+                    <div class="w3-container w3-padding-24">
+                        <div class="w3-row">
+                            <div class="w3-col s3 w3-center">
+                                <i class="fa fa-shield w3-text-blue" style="font-size: 48px;"></i>
+                            </div>
+                            <div class="w3-col s9">
+                                <h3><b>Extended Warranty Program</b></h3>
+                                <p>Protect your investment with our comprehensive extended warranty program. Coverage includes accidental damage and extended manufacturer warranty.</p>
+                                <button class="w3-button w3-blue w3-round" onclick="callForService('Extended Warranty Program')">
+                                    <i class="fa fa-phone"></i> Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <!-- Contact Information -->
+    <div class="w3-container w3-padding-32">
+        <div class="w3-center">
+            <h2 class="w3-text-blue section-title">Contact Us</h2>
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-col l4 m12 s12">
+                    <div class="w3-card w3-white w3-round-large contact-card">
+                        <i class="fa fa-phone w3-text-blue w3-xlarge"></i>
+                        <h4>Phone</h4>
+                        <p><a href="tel:+15551234567" class="w3-text-blue">(555) 123-4567</a></p>
+                    </div>
+                </div>
+                <div class="w3-col l4 m12 s12">
+                    <div class="w3-card w3-white w3-round-large contact-card">
+                        <i class="fa fa-envelope w3-text-blue w3-xlarge"></i>
+                        <h4>Email</h4>
+                        <p><a href="mailto:info@yourstore.com" class="w3-text-blue">info@yourstore.com</a></p>
+                    </div>
+                </div>
+                <div class="w3-col l4 m12 s12">
+                    <div class="w3-card w3-white w3-round-large contact-card">
+                        <i class="fa fa-clock-o w3-text-blue w3-xlarge"></i>
+                        <h4>Hours</h4>
+                        <p>Mon-Sat: 9AM-8PM<br>Sun: 10AM-6PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-blue w3-center w3-padding-24">
+        <p>&copy; 2024 Your Store. All rights reserved.</p>
+        <p class="w3-opacity">Browse our menu online, call to place your order</p>
+    </footer>
+
+    <script>
+        // BACKEND HOOK: Replace this function with actual database search functionality
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                const productName = card.getAttribute('data-name').toLowerCase();
+                const productDescription = card.querySelector('.product-description p').textContent.toLowerCase();
+                
+                if (productName.includes(searchTerm) || productDescription.includes(searchTerm) || searchTerm === '') {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Show message if no products found
+            const visibleCards = document.querySelectorAll('.product-card[style*="block"], .product-card:not([style*="none"])');
+            if (visibleCards.length === 0 && searchTerm !== '') {
+                showNoResultsMessage();
+            } else {
+                hideNoResultsMessage();
+            }
+        }
+
+        // Function to handle call to order
+        function callToOrder(productName) {
+            const phoneNumber = '(555) 123-4567';
+            const message = `Hi! I'd like to order the ${productName} from your menu. Is it available?`;
+            
+            // For mobile devices, open phone dialer
+            if (/Android|iPhone/i.test(navigator.userAgent)) {
+                window.location.href = `tel:+15551234567`;
+            } else {
+                // For desktop, show instruction modal
+                alert(`Please call us at ${phoneNumber} to order:\n\n"${productName}"\n\nWe're available Mon-Sat: 9AM-8PM, Sun: 10AM-6PM`);
+            }
+        }
+
+        // Function to handle call for service
+        function callForService(serviceName) {
+            const phoneNumber = '(555) 123-4567';
+            
+            // For mobile devices, open phone dialer
+            if (/Android|iPhone/i.test(navigator.userAgent)) {
+                window.location.href = `tel:+15551234567`;
+            } else {
+                // For desktop, show instruction modal
+                alert(`Please call us at ${phoneNumber} to inquire about:\n\n"${serviceName}"\n\nWe're available Mon-Sat: 9AM-8PM, Sun: 10AM-6PM`);
+            }
+        }
+
+        // Show no results message
+        function showNoResultsMessage() {
+            let existingMessage = document.getElementById('noResultsMessage');
+            if (!existingMessage) {
+                const container = document.getElementById('productsContainer');
+                const messageDiv = document.createElement('div');
+                messageDiv.id = 'noResultsMessage';
+                messageDiv.className = 'w3-col s12 w3-center w3-padding-32';
+                messageDiv.innerHTML = `
+                    <i class="fa fa-search w3-text-grey" style="font-size: 64px;"></i>
+                    <h3 class="w3-text-grey">No products found</h3>
+                    <p class="w3-text-grey">Try searching with different keywords or browse all products</p>
+                    <button class="w3-button w3-blue w3-round" onclick="clearSearch()">Show All Products</button>
+                `;
+                container.appendChild(messageDiv);
+            }
+        }
+
+        // Hide no results message
+        function hideNoResultsMessage() {
+            const message = document.getElementById('noResultsMessage');
+            if (message) {
+                message.remove();
+            }
+        }
+
+        // Clear search and show all products
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            searchProducts();
+        }
+
+        // BACKEND HOOK: Function to load products from database
+        function loadProducts() {
+            // Example: fetch('/api/products').then(response => response.json()).then(data => displayProducts(data));
+            console.log('Load products from database');
+        }
+
+        // BACKEND HOOK: Function to display products dynamically
+        function displayProducts(products) {
+            const container = document.getElementById('productsContainer');
+            // Clear existing products except samples
+            // Loop through products and create cards dynamically
+            // Handle discount calculations and display
+            // Ensure consistent card heights and styling
+        }
+
+        // Load products when page loads
+        // BACKEND HOOK: Uncomment and implement when connected to database
+        // window.onload = loadProducts;
+
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
