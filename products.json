@@ -353,14 +353,6 @@
     "inStock": true
   },
   {
-    "name": "A Red Panda Image",
-    "description": "An image of a red panda",
-    "price": 0.99,
-    "image": "images/red-panda.png",
-    "category": "Image",
-    "inStock": true
-  },
-  {
     "name": "something",
     "description": "something",
     "price": 100.0,
