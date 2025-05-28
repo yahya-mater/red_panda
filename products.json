@@ -369,14 +369,5 @@
     "image": "images/test.png",
     "category": "debug",
     "inStock": true
-  },
-  {
-    "name": "test2",
-    "description": "test222222",
-    "price": 852.0,
-    "discount": 50,
-    "image": "images/website_photo_1.jpg",
-    "category": "debug",
-    "inStock": true
   }
 ]
