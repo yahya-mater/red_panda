@@ -345,15 +345,6 @@
     "inStock": true
   },
   {
-    "name": "test4",
-    "description": "test4",
-    "price": 100.0,
-    "discount": 200,
-    "image": "placeholder.jpg",
-    "category": "debug",
-    "inStock": true
-  },
-  {
     "name": "test5",
     "description": "tset5",
     "price": 100.0,
