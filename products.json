@@ -343,14 +343,5 @@
     "image": "images/red-panda.png",
     "category": "",
     "inStock": true
-  },
-  {
-    "name": "test5",
-    "description": "tset5",
-    "price": 100.0,
-    "discount": 100,
-    "image": "placeholder.jpg",
-    "category": "debug",
-    "inStock": true
   }
 ]
