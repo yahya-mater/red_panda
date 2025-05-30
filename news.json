@@ -52,14 +52,5 @@
     "category": "Program Launch",
     "categoryColor": "teal",
     "image": "https://dummyimage.com/600x300/009688/ffffff?text=Loyalty+Program"
-  },
-  {
-    "id": 7,
-    "title": "test",
-    "date": "2025-05-30",
-    "content": "tes",
-    "category": "debug",
-    "categoryColor": "red",
-    "image": "placeholder.jpg"
   }
 ]
