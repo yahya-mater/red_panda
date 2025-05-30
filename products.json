@@ -354,15 +354,6 @@
     "inStock": true
   },
   {
-    "name": "test3",
-    "description": "test3",
-    "price": 100.0,
-    "discount": 100,
-    "image": "placeholder.jpg",
-    "category": "debug",
-    "inStock": true
-  },
-  {
     "name": "test4",
     "description": "test4",
     "price": 100.0,
