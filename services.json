@@ -10,5 +10,11 @@
     "description": "Protect your investment with comprehensive coverage.",
     "icon": "fa-shield",
     "buttonText": "Learn More"
+  },
+  {
+    "name": "test",
+    "description": "test",
+    "icon": "fa-wrench",
+    "buttonText": "test"
   }
 ]
