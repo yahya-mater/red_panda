@@ -345,15 +345,6 @@
     "inStock": true
   },
   {
-    "name": "something to test",
-    "description": "test something",
-    "price": 25.0,
-    "discount": 0,
-    "image": "images/test.png",
-    "category": "debug",
-    "inStock": true
-  },
-  {
     "name": "test4",
     "description": "test4",
     "price": 100.0,
