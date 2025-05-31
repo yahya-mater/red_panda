@@ -343,5 +343,14 @@
     "image": "images/red-panda.png",
     "category": "",
     "inStock": true
+  },
+  {
+    "name": "ahmad",
+    "description": "human",
+    "price": 0.99,
+    "discount": 100,
+    "image": "placeholder.jpg",
+    "category": "slave",
+    "inStock": true
   }
 ]
