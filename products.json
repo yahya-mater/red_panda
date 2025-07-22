@@ -52,14 +52,5 @@
     "image": "placeholder.jpg",
     "category": "\u0648\u0631\u0642\u064a\u0627\u062a",
     "inStock": true
-  },
-  {
-    "name": "test2",
-    "description": "test2",
-    "price": "something",
-    "discount": 0,
-    "image": "placeholder.jpg",
-    "category": "debug",
-    "inStock": true
   }
 ]
