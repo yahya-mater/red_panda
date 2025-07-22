@@ -121,6 +121,8 @@
     
     <script>
         // Global variables to store data
+        let OWNER = "yahya-mater"
+        let REPO = "red_panda"
         let productsData = [];
         let allProducts = [];
         let servicesData = [];
@@ -132,7 +134,7 @@
         async function loadData() {
             try {
                 // Load products
-                const productsResponse = await fetch('products.json');
+                const productsResponse = await fetch(`https://raw.githubusercontent.com/${OWNER}/${REPO}/master/products.json`);
                 if (!productsResponse.ok) {
                     throw new Error('Failed to load products data');
                 }
@@ -140,10 +142,15 @@
                 allProducts = productsData
                 filteredProducts = [...productsData];
 
-                displayProducts(productsData);
+                try{
+                    displayProducts(productsData);
+                }
+                catch{
+                    throw new Error(`could not display products`)
+                }
 
                 // Load services
-                const servicesResponse = await fetch('services.json');
+                const servicesResponse = await fetch(`https://raw.githubusercontent.com/${OWNER}/${REPO}/master/services.json`);
                 
                 console.log("done fetch Services")
                 if (!servicesResponse.ok) {
@@ -185,8 +192,12 @@
             container.innerHTML = '';
             
             productsToShow.forEach(product => {
-                const productCard = createProductCard(product);
-                container.appendChild(productCard);
+                try{
+                    const productCard = createProductCard(product);
+                    container.appendChild(productCard);
+                }catch{
+                    throw new Error(`could not create a product card. product: ${product}`)
+                }
             });
 
             // Show pagination if needed
@@ -298,9 +309,9 @@
                         <div class="price-section">
                             ${hasDiscount ? `
                                 <p class="discounted-price">$${discountedPrice}</p>
-                                <p class="original-price">$${product.price.toFixed(2)}</p>
+                                <p class="original-price">${product.price.toFixed(2)}</p>
                             ` : `
-                                <p class="regular-price">$${product.price}</p>
+                                <p class="regular-price">${product.price}</p>
                             `}
                         </div>
                         
