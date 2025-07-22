@@ -54,15 +54,6 @@
     "inStock": true
   },
   {
-    "name": "test",
-    "description": "test",
-    "price": "test",
-    "discount": 0,
-    "image": "placeholder.jpg",
-    "category": "debug",
-    "inStock": true
-  },
-  {
     "name": "test2",
     "description": "test2",
     "price": "something",
