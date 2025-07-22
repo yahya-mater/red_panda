@@ -61,5 +61,14 @@
     "image": "placeholder.jpg",
     "category": "debug",
     "inStock": true
+  },
+  {
+    "name": "test2",
+    "description": "test2",
+    "price": "something",
+    "discount": 0,
+    "image": "placeholder.jpg",
+    "category": "debug",
+    "inStock": true
   }
 ]
